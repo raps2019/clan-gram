@@ -6,7 +6,7 @@ const ThemeStore = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    setTheme( prevDarkTheme => prevDarkTheme === 'light' ? 'dark' : 'light' );
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
   return (

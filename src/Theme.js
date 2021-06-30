@@ -3,14 +3,20 @@ import { ThemeProvider } from 'styled-components'
 import { ThemeContext } from './contexts/ThemeStore'
 
 const themes = {
-  dark: {
-    background: "#272823",
-    text: "#fff"
-  },
+
   light: {
-    background: "#fff",
-    text: "000"
-  }
+    window: { backgroundColor: "white"},
+  },
+
+  dark: {
+    window: { backgroundColor: "#272823"},
+
+    // button: { 
+    //   backgroundColor: 'black',
+    //   color: 'white',
+    //  }
+
+  },
 }
 
 const Theme = ({children}) => {

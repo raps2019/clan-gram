@@ -49,6 +49,7 @@ padding: 10px 0;
 font-size: 14px;
 width: 100%;
 outline: none;
+background-color: inherit;
 
 &:focus + label,
 &:not(:placeholder-shown) + label

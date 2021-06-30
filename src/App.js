@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Theme from './Theme';
 import { ThemeStore } from './contexts/ThemeStore';
@@ -7,8 +7,10 @@ import GlobalStyle from './GlobalStyle';
 import Login from './components/authentication/Login';
 import Signup from './components/authentication/Signup';
 import ForgotPassword from './components/authentication/ForgotPassword';
+import ToggleThemeButton from './components/ToggleThemeButton';
 
 const App = () => {
+
   return (
     <>
       <ThemeStore>
@@ -16,6 +18,7 @@ const App = () => {
           <GlobalStyle />
           <Styled.WindowContainer
           >
+          <ToggleThemeButton></ToggleThemeButton>
             <Router>
               <Switch>
                 <Route path="/signup" component={Signup}></Route>
