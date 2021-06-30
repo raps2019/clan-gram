@@ -21,13 +21,12 @@ text-decoration: none;
 background: #ffffff;
 padding: 5px 20px;
 border: 4px solid #494949;
+border-radius: 10px;
 transition: all 0.4s ease;
 font-size: 14px;
+cursor: pointer;
 
 &:hover {
-  color: #ffffff;
-  background: #f6b93b;
-	border-color: #f6b93b;
 	transition: all 0.4s ease;
 }
 `

@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom'
 const ForgotPassword = () => {
   return (
     <Styled.PageContainer>
-      <Styled.Form>
+      <Styled.Form
+      form={"forgotPassword"}>
         <Styled.Heading>ClanGram</Styled.Heading>
         <Styled.FieldContainer>
           <Styled.Input type="email" placeholder=" " required></Styled.Input>
           <Styled.Label>Email</Styled.Label>
         </Styled.FieldContainer>
-        <Styled.Button type="submit">RESET</Styled.Button>
+        <Styled.Button type="submit" form={"forgotPassword"}>RESET</Styled.Button>
         <Styled.Text>Don't have an account? <Link to="/signup">SIGNUP</Link></Styled.Text>
         <Styled.SmallText>Back to <Link to="/login">LOGIN</Link></Styled.SmallText>
       </Styled.Form>

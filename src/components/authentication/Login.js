@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 const Login = () => {
   return (
     <Styled.PageContainer>
-      <Styled.Form>
+      <Styled.Form
+      form={"login"}>
         <Styled.Heading>ClanGram</Styled.Heading>
         <Styled.FieldContainer>
           <Styled.Input type="email" placeholder=" " required></Styled.Input>
@@ -16,7 +17,7 @@ const Login = () => {
           <Styled.Input type="password" placeholder=" " required></Styled.Input>
           <Styled.Label>Password</Styled.Label>
         </Styled.FieldContainer>
-        <Styled.Button type="submit">LOGIN</Styled.Button>
+        <Styled.Button type="submit" form={"login"}>LOGIN</Styled.Button>
         <Styled.Text>Don't have an account? <Link to="/signup">SIGNUP</Link></Styled.Text>
         <Styled.SmallText>Forgot Password? <Link to="/forgot-password">RESET</Link></Styled.SmallText>
       </Styled.Form>

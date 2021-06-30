@@ -18,7 +18,15 @@ align-items: center;
 padding: 50px 30px;
 border-radius: 10px;
 box-shadow: 0 19px 38px rgba(0,0,0,0.15), 0 15px 12px rgba(0,0,0,0.10);
-border-top: 20px red solid;
+border-top: 20px solid ${ props => {
+  if (props.form==="login") {
+    return "#CAEEBE"
+  } else if (props.form==="signup") {
+    return "#98E2F7"
+  } else if (props.form==="forgotPassword") {
+    return "#D0B1FC"
+  }
+}}
 `
 
 export const Heading = styled.div`
@@ -59,8 +67,29 @@ transform: translateY(15px);
 transition: all 150ms ease-out;
 `
 export const Button = styled(GlobalButton)`
-margin: 30px 0;
+margin: 10px 0 30px 0;
 letter-spacing: 0.15em;
+
+&:hover {
+  background-color: ${ props => {
+  if (props.form==="login") {
+    return "#CAEEBE"
+  } else if (props.form==="signup") {
+    return "#98E2F7"
+  } else if (props.form==="forgotPassword") {
+    return "#D0B1FC"
+  }
+}};
+border-color:  ${ props => {
+  if (props.form==="login") {
+    return "#CAEEBE"
+  } else if (props.form==="signup") {
+    return "#98E2F7"
+  } else if (props.form==="forgotPassword") {
+    return "#D0B1FC"
+  }
+}}
+}
 `
 
 export const Text = styled.p`
