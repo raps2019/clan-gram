@@ -18,6 +18,7 @@ align-items: center;
 padding: 50px 30px;
 border-radius: 10px;
 box-shadow: 0 19px 38px rgba(0,0,0,0.15), 0 15px 12px rgba(0,0,0,0.10);
+border-top: 20px red solid;
 `
 
 export const Heading = styled.div`
