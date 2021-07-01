@@ -5,17 +5,16 @@ import { ThemeContext } from './contexts/ThemeStore'
 const themes = {
 
   light: {
-    window: { backgroundColor: "white"},
+    // windowBackgroundColor : "white",
+    // loginAccentColor : "#CAEEBE",
+    // signupAccentColor : "#98E2F7",
+    // forgotPasswordAccentColor: "#FEC98F",
   },
-
   dark: {
-    window: { backgroundColor: "#272823"},
-
-    // button: { 
-    //   backgroundColor: 'black',
-    //   color: 'white',
-    //  }
-
+    // windowBackgroundColor: "#121212",
+    // loginAccentColor : "#79D45E",
+    // signupAccentColor : "#31BFF3",
+    // forgotPasswordAccentColor: "#FFAF68",
   },
 }
 

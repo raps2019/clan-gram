@@ -7,18 +7,20 @@ import GlobalStyle from './GlobalStyle';
 import Login from './components/authentication/Login';
 import Signup from './components/authentication/Signup';
 import ForgotPassword from './components/authentication/ForgotPassword';
-import ToggleThemeButton from './components/ToggleThemeButton';
+import { AuthProvider } from './contexts/AuthContext';
 
 const App = () => {
 
   return (
     <>
-      <ThemeStore>
+    <ThemeStore>
         <Theme>
           <GlobalStyle />
+          <AuthProvider>
+
           <Styled.WindowContainer
           >
-          <ToggleThemeButton></ToggleThemeButton>
+          {/* <ToggleThemeButton></ToggleThemeButton> */}
             <Router>
               <Switch>
                 <Route path="/signup" component={Signup}></Route>
@@ -30,8 +32,10 @@ const App = () => {
               </Switch>
             </Router>
           </Styled.WindowContainer>
+          </AuthProvider>
         </Theme>
       </ThemeStore>
+      
     </>
   );
 };

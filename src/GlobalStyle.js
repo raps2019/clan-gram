@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
 export const WindowContainer = styled.div`
   height : 100vh;
   width : 100vw;
-  background-color: ${props => props.theme.window.backgroundColor};
 `
 
 export const GlobalButton = styled.button`
@@ -22,7 +21,7 @@ background: #ffffff;
 padding: 5px 20px;
 border: 4px solid #494949;
 border-radius: 10px;
-transition: all 0.4s ease;
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);transition: all 0.4s ease;
 font-size: 14px;
 cursor: pointer;
 

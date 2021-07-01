@@ -1,24 +1,23 @@
 import React from 'react';
 import * as Styled from './Authentication.styles';
-import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
   return (
     <Styled.PageContainer>
-      <Styled.Form form={'forgotPassword'}>
-        <Styled.Heading>Famgram</Styled.Heading>
+      <Styled.Form formType={'forgotPassword'}>
+        <Styled.Heading>FamGram</Styled.Heading>
         <Styled.FieldContainer>
           <Styled.Input type="email" placeholder=" " required></Styled.Input>
           <Styled.Label>Email</Styled.Label>
         </Styled.FieldContainer>
-        <Styled.Button type="submit" form={'forgotPassword'}>
+        <Styled.Button type="submit" formType={'forgotPassword'}>
           RESET
         </Styled.Button>
         <Styled.Text>
-          Don't have an account? <Link to="/signup">SIGNUP</Link>
+          Don't have an account? <Styled.RouteLink to="/signup">Signup</Styled.RouteLink>
         </Styled.Text>
         <Styled.SmallText>
-          Back to <Link to="/login">LOGIN</Link>
+          Back to <Styled.RouteLink to="/login">Login</Styled.RouteLink>
         </Styled.SmallText>
       </Styled.Form>
     </Styled.PageContainer>

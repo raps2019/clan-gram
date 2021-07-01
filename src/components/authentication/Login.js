@@ -1,12 +1,11 @@
 import React from 'react';
 import * as Styled from './Authentication.styles';
-import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
     <Styled.PageContainer>
-      <Styled.Form form={'login'}>
-        <Styled.Heading>Famgram</Styled.Heading>
+      <Styled.Form formType={'login'}>
+        <Styled.Heading>FamGram</Styled.Heading>
         <Styled.FieldContainer>
           <Styled.Input type="email" placeholder=" " required></Styled.Input>
           <Styled.Label>Email</Styled.Label>
@@ -15,14 +14,14 @@ const Login = () => {
           <Styled.Input type="password" placeholder=" " required></Styled.Input>
           <Styled.Label>Password</Styled.Label>
         </Styled.FieldContainer>
-        <Styled.Button type="submit" form={'login'}>
+        <Styled.Button type="submit" formType={'login'}>
           LOGIN
         </Styled.Button>
         <Styled.Text>
-          Don't have an account? <Link to="/signup">SIGNUP</Link>
+          Don't have an account? <Styled.RouteLink to="/signup">Sign up</Styled.RouteLink>
         </Styled.Text>
         <Styled.SmallText>
-          Forgot Password? <Link to="/forgot-password">RESET</Link>
+          Forgot Password? <Styled.RouteLink to="/forgot-password">Reset</Styled.RouteLink>
         </Styled.SmallText>
       </Styled.Form>
     </Styled.PageContainer>

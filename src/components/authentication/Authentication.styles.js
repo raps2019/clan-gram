@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { GlobalButton } from "../../GlobalStyle"
+import { Link } from 'react-router-dom';
+
 
 export const PageContainer = styled.div`
 width: 100%;
@@ -16,17 +18,23 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 50px 30px;
-border-radius: 10px;
+border-radius: 15px;
 box-shadow: 0 19px 38px rgba(0,0,0,0.15), 0 15px 12px rgba(0,0,0,0.10);
-border-top: 20px solid ${ props => {
-  if (props.form==="login") {
-    return "#CAEEBE"
-  } else if (props.form==="signup") {
+border-top: 30px solid ${ props => {
+  if (props.formType==="login") {
+    return '#CAEEBE'
+  } else if (props.formType==="signup") {
     return "#98E2F7"
-  } else if (props.form==="forgotPassword") {
-    return "#D0B1FC"
+  } else if (props.formType==="forgotPassword") {
+    return  "#FEC98F"
   }
-}}
+}};
+
+@media screen and (max-width: 411px) {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
 `
 
 export const Heading = styled.div`
@@ -36,10 +44,9 @@ font-family: 'Pacifico', cursive;
 
 export const FieldContainer = styled.div`
 position: relative;
-margin: 30px 0;
+margin: 15px 0;
 width: 300px;
 max-width: 100%;
-letter-spacing: 0.15em;
 `
 
 export const Input = styled.input`
@@ -56,6 +63,7 @@ background-color: inherit;
  {
   transform: translateY(-15px);
   font-size: 12px;
+  font-weight: 700;
 }
 `
 export const Label = styled.label`
@@ -68,43 +76,61 @@ transform: translateY(15px);
 transition: all 150ms ease-out;
 `
 export const Button = styled(GlobalButton)`
-margin: 10px 0 30px 0;
-letter-spacing: 0.15em;
+margin: 10px 0;
+border: 4px solid ${ props => {
+  if (props.formType==="login") {
+    return "#CAEEBE"
+  } else if (props.formType==="signup") {
+    return "#98E2F7"
+  } else if (props.formType==="forgotPassword") {
+    return "#FEC98F"
+  }
+}};
 
 &:hover {
   background-color: ${ props => {
-  if (props.form==="login") {
+  if (props.formType==="login") {
     return "#CAEEBE"
-  } else if (props.form==="signup") {
+  } else if (props.formType==="signup") {
     return "#98E2F7"
-  } else if (props.form==="forgotPassword") {
-    return "#D0B1FC"
+  } else if (props.formType==="forgotPassword") {
+    return "#FEC98F"
   }
 }};
 border-color:  ${ props => {
-  if (props.form==="login") {
+  if (props.formType==="login") {
     return "#CAEEBE"
-  } else if (props.form==="signup") {
+  } else if (props.formType==="signup") {
     return "#98E2F7"
-  } else if (props.form==="forgotPassword") {
-    return "#D0B1FC"
+  } else if (props.formType==="forgotPassword") {
+    return "#FEC98F"
   }
 }}
 }
 `
 
 export const Text = styled.p`
-letter-spacing: 0.15em;
 font-size: 14px;
 padding: 10px 0;
 `
 
 export const SmallText = styled.p`
-letter-spacing: 0.15em;
 font-size: 12px;
 padding: 10px 0;
 `
 
+export const RouteLink = styled(Link)`
+text-decoration: none;
+border-bottom: 2px solid black;
+color: inherit;
+`
+export const ErrorMessage = styled.div`
+font-size: 12px;
+padding: 10px 0;
+width: 100%;
+background-color: #F8ABB3;
+text-align: center;
+`
 
 
 
