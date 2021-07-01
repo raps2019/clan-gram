@@ -27,7 +27,7 @@ const Signup = () => {
       setError('');
       setLoading(true);
       await signup(email, password);
-      history.push('/')
+      history.push('/dashboard')
     } catch (error) {
       setError(error.message)
     }
@@ -37,7 +37,7 @@ const Signup = () => {
 
   return (
     <Styled.PageContainer>
-      <Styled.Form formType={'signup'} onSubmit={handleSubmit}>
+      <Styled.Form formType={'signup'} onSubmit={handleSubmit} disabled={loading}>
         <Styled.Heading>FamGram</Styled.Heading>
         <Styled.FieldContainer>
           <Styled.Input

@@ -31,18 +31,23 @@ const useAuthProvider = () => {
     return auth.createUserWithEmailAndPassword(email,password)
   }
 
+  const login = (email, password) => {
+    return auth.signInWithEmailAndPassword(email, password)
+  }
+
   useEffect( () => {
     const unsubscribe = auth.onAuthStateChanged( (user) => {
       setCurrentUser(user)
       setLoading(false)
     })
-
+    console.log(currentUser)
     return unsubscribe;
   })
 
   return {
     currentUser,
     signup,
+    login,
     loading,
   }
 }
