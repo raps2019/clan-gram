@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../contexts/ThemeStore'
+import { ThemeContext } from '../../global/ThemeStore'
 
 
 const ToggleThemeButton = () => {

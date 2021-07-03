@@ -1,19 +1,25 @@
 import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { ThemeContext } from './contexts/ThemeStore';
+import { ThemeContext } from './global/ThemeStore';
 
 const themes = {
   light: {
     // windowBackgroundColor : "white",
-    // loginAccentColor : "#CAEEBE",
-    // signupAccentColor : "#98E2F7",
-    // resetPasswordAccentColor: "#FEC98F",
+    greenAccentColor : "#CAEEBE",
+    blueAccentColor : "#98E2F7",
+    orangeAccentColor: "#FEC98F",
+    errorMessageBackground: '#f8abb3',
+
+    navbarTextColor : "#000000",
   },
   dark: {
     // windowBackgroundColor: "#121212",
-    // loginAccentColor : "#79D45E",
-    // signupAccentColor : "#31BFF3",
-    // resetPasswordAccentColor: "#FFAF68",
+    greenAccentColor : "#79D45E",
+    blueAccentColor : "#31BFF3",
+    orangeAccentColor: "#FFAF68",
+    errorMessageBackground:'#E5707E',
+
+    navbarTextColor : "#FFFFFF",
   },
 };
 

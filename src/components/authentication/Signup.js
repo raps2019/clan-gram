@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as Styled from './Authentication.styles';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../global/AuthContext';
 import { useHistory } from 'react-router';
 // import { AuthProvider } from '../../contexts/AuthContext';
 
@@ -11,10 +11,9 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
+  const { signup, currentUser } = useAuth();
   const history = useHistory();
   //Use this during testing
-  // const { currentUser } = AuthProvider();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,22 +25,27 @@ const Signup = () => {
     try {
       setError('');
       setLoading(true);
-      await signup(email, password);
-      history.push('/dashboard')
+      await signup(email, password, username);
+      history.push('/dashboard');
     } catch (error) {
-      setError(error.message)
+      setError(error.message);
     }
 
-    setLoading(false)
+    setLoading(false);
   };
 
   return (
     <Styled.PageContainer>
-      <Styled.Form formType={'signup'} onSubmit={handleSubmit} disabled={loading}>
+      <Styled.Form
+        formType={'signup'}
+        onSubmit={handleSubmit}
+        disabled={loading}
+      >
         <Styled.Heading>FamGram</Styled.Heading>
         <Styled.FieldContainer>
           <Styled.Input
             type="text"
+            formType={'signup'}
             placeholder=" "
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -52,6 +56,7 @@ const Signup = () => {
         <Styled.FieldContainer>
           <Styled.Input
             type="email"
+            formType={'signup'}
             placeholder=" "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -62,6 +67,7 @@ const Signup = () => {
         <Styled.FieldContainer>
           <Styled.Input
             type="password"
+            formType={'signup'}
             placeholder=" "
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -72,6 +78,7 @@ const Signup = () => {
         <Styled.FieldContainer>
           <Styled.Input
             type="password"
+            formType={'signup'}
             placeholder=" "
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -79,7 +86,7 @@ const Signup = () => {
           ></Styled.Input>
           <Styled.Label>Confirm Password</Styled.Label>
         </Styled.FieldContainer>
-        <Styled.Button type="submit" formType={"signup"}>
+        <Styled.Button type="submit" formType={'signup'}>
           SIGN UP
         </Styled.Button>
         <Styled.Text>

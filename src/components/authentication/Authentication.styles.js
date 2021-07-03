@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GlobalButton } from '../../GlobalStyle';
+import { GlobalButton } from '../../global/GlobalStyle';
 import { Link } from 'react-router-dom';
 
 export const PageContainer = styled.div`
@@ -20,14 +20,16 @@ export const Form = styled.form`
   padding: 50px 30px;
   border-radius: 15px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.15), 0 15px 12px rgba(0, 0, 0, 0.1);
+  transition: all 150ms ease-out;
   border-top: 30px solid
+  
     ${(props) => {
       if (props.formType === 'login') {
-        return '#CAEEBE';
+        return props.theme.greenAccentColor;
       } else if (props.formType === 'signup') {
-        return '#98E2F7';
+        return props.theme.blueAccentColor;
       } else if (props.formType === 'resetPassword') {
-        return '#FEC98F';
+        return props.theme.orangeAccentColor;
       }
     }};
 
@@ -58,6 +60,20 @@ export const Input = styled.input`
   width: 100%;
   outline: none;
   background-color: inherit;
+  transition: all 150ms ease-out;
+
+  &:focus {
+    border-bottom: 1px solid
+    ${(props) => {
+      if (props.formType === 'login') {
+        return props.theme.greenAccentColor;
+      } else if (props.formType === 'signup') {
+        return props.theme.blueAccentColor;
+      } else if (props.formType === 'resetPassword') {
+        return props.theme.orangeAccentColor;
+      }
+    }}
+  }
 
   &:focus + label,
   &:not(:placeholder-shown) + label {
@@ -80,31 +96,31 @@ export const Button = styled(GlobalButton)`
   border: 4px solid
     ${(props) => {
       if (props.formType === 'login') {
-        return '#CAEEBE';
+        return props.theme.greenAccentColor;
       } else if (props.formType === 'signup') {
-        return '#98E2F7';
+        return props.theme.blueAccentColor;
       } else if (props.formType === 'resetPassword') {
-        return '#FEC98F';
+        return props.theme.orangeAccentColor;
       }
     }};
 
   &:hover {
     background-color: ${(props) => {
       if (props.formType === 'login') {
-        return '#CAEEBE';
+        return props.theme.greenAccentColor;
       } else if (props.formType === 'signup') {
-        return '#98E2F7';
+        return props.theme.blueAccentColor;
       } else if (props.formType === 'resetPassword') {
-        return '#FEC98F';
+        return props.theme.orangeAccentColor;
       }
     }};
     border-color: ${(props) => {
       if (props.formType === 'login') {
-        return '#CAEEBE';
+        return props.theme.greenAccentColor;
       } else if (props.formType === 'signup') {
-        return '#98E2F7';
+        return props.theme.blueAccentColor;
       } else if (props.formType === 'resetPassword') {
-        return '#FEC98F';
+        return props.theme.orangeAccentColor;
       }
     }};
   }
@@ -125,12 +141,16 @@ export const RouteLink = styled(Link)`
   border-bottom: 2px solid black;
   color: inherit;
 `;
-export const ErrorMessage = styled.div`
+
+export const Message = styled.div`
   font-size: 12px;
   padding: 10px 0;
   max-width: 100%;
-  background-color: #f8abb3;
   text-align: center;
   border-radius: 5px;
   padding: 3px;
+`
+
+export const ErrorMessage = styled(Message)`
+  background-color: ${props => props.theme.errorMessageBackground};
 `;

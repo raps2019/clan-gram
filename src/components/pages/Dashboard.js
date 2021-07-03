@@ -1,5 +1,6 @@
 import React from 'react'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../../global/AuthContext'
+import Navbar from '../navbar/Navbar'
 
 const Dashboard = () => {
 
@@ -7,7 +8,10 @@ const Dashboard = () => {
   
   return (
     <div>
+    <Navbar></Navbar>
+    
       {currentUser.email}
+      {currentUser.displayName}
     </div>
   )
 }

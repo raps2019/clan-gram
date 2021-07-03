@@ -16,7 +16,7 @@ export const useAuth = () => {
   const auth = useAuthProvider();
 
   return (
-    <AuthContext.Provider value={auth}>
+    auth.currentUser && <AuthContext.Provider value={auth}>
       {children}
     </AuthContext.Provider>
   )
@@ -27,27 +27,35 @@ const useAuthProvider = () => {
   const [ loading, setLoading ] = useState(true)
   const [ currentUser, setCurrentUser ] = useState(null);
 
-  const signup = (email, password) => {
-    return auth.createUserWithEmailAndPassword(email,password)
+  const signup = (email, password, username) => {
+    return auth.createUserWithEmailAndPassword(email,password).then( (result) => {
+      return result.user.updateProfile({
+        displayName: username
+      })
+    })
   }
 
   const login = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password)
   }
 
+  const resetPassword = (email) => {
+    return auth.sendPasswordResetEmail(email)
+  }
+
   useEffect( () => {
     const unsubscribe = auth.onAuthStateChanged( (user) => {
       setCurrentUser(user)
-      setLoading(false)
+      setLoading(false);
     })
-    console.log(currentUser)
     return unsubscribe;
-  })
+  }, [])
 
   return {
     currentUser,
     signup,
     login,
+    resetPassword,
     loading,
   }
 }
